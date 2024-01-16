@@ -9,7 +9,7 @@ import { BellIcon } from '@chakra-ui/icons'
 export default function Page() {
   var key = 0
   const [items, setItems] = useState(Array<Item>);
-  const [pulling, setPulling] = useState(false);
+  const [pulling, setPulling] = useState(true);
 
   useEffect(() => {
     const interval = setInterval(async () => {
