@@ -38,8 +38,7 @@ export default function Page() {
             <Tr>
               <Th width="1%" whiteSpace='nowrap'>ID</Th>
               <Th width="1%" whiteSpace='nowrap'>Method</Th>
-              <Th width="1%" >Address</Th>
-              <Th>Body</Th>
+              <Th >Address</Th>
               <Th width="1%" whiteSpace='nowrap'></Th>
               <Th width="1%" isNumeric>Created at</Th>
             </Tr>
@@ -52,8 +51,7 @@ export default function Page() {
                   <Td>{item.id}</Td>
                   <Td>{item.method}</Td>
                   <Td>{item.address}</Td>
-                  <Td>{item.body}</Td>
-                  <Td><ItemModal text={item.body}></ItemModal></Td>
+                  <Td>{ item.body && <ItemModal text={item.body}></ItemModal> }</Td>
                   <Td isNumeric>{item.created_at}</Td>
                 </Tr>
               );

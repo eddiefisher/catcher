@@ -9,13 +9,13 @@ export default function ItemModal({ text }: { text: string }) {
     <>
       <Button onClick={onOpen} size='sm'>Show body</Button>
 
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Modal isOpen={isOpen} onClose={onClose} size='6xl'>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>Body</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Text>{text}</Text>
+          <Text fontSize='0.7em'><pre>{JSON.stringify(JSON.parse(text), null, 2)}</pre></Text>
           </ModalBody>
 
           <ModalFooter>
