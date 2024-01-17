@@ -1,6 +1,7 @@
 'use client'
 
-import { useDisclosure, Button, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter, Text } from "@chakra-ui/react"
+import { CopyIcon } from "@chakra-ui/icons"
+import { useDisclosure, Button, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter, Text, Icon } from "@chakra-ui/react"
 
 export default function ItemModal({ text }: { text: string }) {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -12,10 +13,15 @@ export default function ItemModal({ text }: { text: string }) {
       <Modal isOpen={isOpen} onClose={onClose} size='6xl'>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Body</ModalHeader>
+          <ModalHeader>
+            Body
+            <Button ml='4' colorScheme='blue' variant='ghost' onClick={() => { navigator.clipboard.writeText(text) }}>
+              <Icon as={CopyIcon}></Icon>
+            </Button>
+          </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-          <Text fontSize='0.7em'><pre>{JSON.stringify(JSON.parse(text), null, 2)}</pre></Text>
+            <Text fontSize='0.7em'><pre>{JSON.stringify(JSON.parse(text), null, 2)}</pre></Text>
           </ModalBody>
 
           <ModalFooter>
